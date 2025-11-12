@@ -1,0 +1,32 @@
+CREATE DATABASE perpustakaan;
+USE perpustakaan;
+
+CREATE TABLE buku (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  judul VARCHAR(255) NOT NULL
+);
+
+INSERT INTO buku (judul) VALUES
+('Doraemon’),
+('Nerd Project’)
+('Belajar CSS’),
+('Zhenya'),
+(‘Codename Anastasia’)
+(‘Me and You’),
+(‘Kazuha’);
+
+CREATE TABLE peminjaman (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  tanggal_pinjam DATETIME NOT NULL
+);
+CREATE TABLE dipinjam (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  peminjaman_id INT NOT NULL,
+  buku_id INT NOT NULL,
+  hari INT NOT NULL DEFAULT 1,
+  FOREIGN KEY (peminjaman_id) REFERENCES peminjaman(id),
+  FOREIGN KEY (buku_id) REFERENCES buku(id)
+);
+
+
+
